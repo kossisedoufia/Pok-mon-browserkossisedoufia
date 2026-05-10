@@ -23,7 +23,33 @@ const fetchPokemon = async (id) => {
 
   // TRY IT 1: Logging the response
   console.log("Pokemon Data:", pokemonData);
+  renderPokemon(pokemonData);
 };
 
 // Start the app
 fetchPokemon(currentPokemonId);
+
+/**
+ * TRY IT 3: RENDER TO DOM
+ * Displays the image, name, and types using semantic HTML and Tailwind.
+ */
+const renderPokemon = (pokemon) => {
+  // Use map() to create the list of types (required for the grade)
+  const typesHtml = pokemon.types
+    .map(
+      (typeInfo) =>
+        `<li class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold capitalize">${typeInfo.type.name}</li>`,
+    )
+    .join("");
+
+  // Inject semantic HTML into our container
+  pokemonContainer.innerHTML = `
+    <figure class="flex flex-col items-center bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 transition-all">
+      <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="w-48 h-48 drop-shadow-md">
+      <figcaption class="text-3xl font-black capitalize text-slate-800 mt-4">${pokemon.name}</figcaption>
+      <ul class="flex gap-2 mt-4">
+        ${typesHtml}
+      </ul>
+    </figure>
+  `;
+};
