@@ -9,13 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-tailwind-js-template</title>
   </head>
-  <body>
-    <main class="flex flex-col min-h-screen items-center justify-center">
-    <h1 class="text-8xl font-black text-center animate-bounce text-red-600">
-      Hello world!
-    </h1>
-  </main>
-    
-    <script type="module" src="/src/main.js"></script>
+    <body>
+    <main class="flex flex-col min-h-screen items-center justify-center bg-slate-50 p-5">
+      
+      <h1 class="text-3xl font-black text-center mb-10 text-blue-600">Pokémon Browser</h1>
+
+      <div id="pokemon-container"></div>
+
+      <div class="flex gap-4 mt-10">
+        <button id="prev-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-all">
+          Previous
+        </button>
+        <button id="next-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-all">
+          Next
+        </button>
+      </div>
+
+    </main>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
