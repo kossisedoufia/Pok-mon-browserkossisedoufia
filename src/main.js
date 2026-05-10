@@ -1,5 +1,5 @@
 // 1. Initial State
-const currentPokemonId = 1;
+let currentPokemonId = 1;
 
 // 2. DOM Elements
 const pokemonContainer = document.querySelector("#pokemon-container");
@@ -53,3 +53,23 @@ const renderPokemon = (pokemon) => {
     </figure>
   `;
 };
+/**
+ * TRY IT 4: NAVIGATION
+ * Adds click events and ensures the ID stays between 1 and 1025.
+ */
+
+// Next Button: Increment and fetch
+nextBtn.addEventListener("click", () => {
+  if (currentPokemonId < 1025) {
+    currentPokemonId++;
+    fetchPokemon(currentPokemonId);
+  }
+});
+
+// Previous Button: Decrement and fetch
+prevBtn.addEventListener("click", () => {
+  if (currentPokemonId > 1) {
+    currentPokemonId--;
+    fetchPokemon(currentPokemonId);
+  }
+});
