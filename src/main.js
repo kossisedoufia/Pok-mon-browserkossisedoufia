@@ -1,22 +1,29 @@
-// Initial ID for the first Pokemon
+// 1. Initial State
 const currentPokemonId = 1;
 
-// Select DOM elements
+// 2. DOM Elements
 const pokemonContainer = document.querySelector("#pokemon-container");
 const prevBtn = document.querySelector("#prev-btn");
 const nextBtn = document.querySelector("#next-btn");
 
 /**
- * TRY IT 1: FETCH & LOG
- * Basic async function to fetch data and log it.
+ * TRY IT 1 & 2: FETCH & ERROR HANDLING
+ * (This version is updated with the guard clause for Try 2)
  */
 const fetchPokemon = async (id) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+  // TRY IT 2: Guard Clause
+  if (!response.ok) {
+    console.error(`Error: Could not find Pokemon with ID ${id}`);
+    return;
+  }
+
   const pokemonData = await response.json();
 
-  // Log the response to see properties like name, sprites, and types
+  // TRY IT 1: Logging the response
   console.log("Pokemon Data:", pokemonData);
 };
 
-// Start by fetching the first Pokemon
+// Start the app
 fetchPokemon(currentPokemonId);
